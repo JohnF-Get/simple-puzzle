@@ -126,7 +126,6 @@
         // addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
         // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
         // my code for button
-
         addPuzzlePiece("buttons", false, false, true, true, "addPuzzlePieceWithoutTopAndRightToBoard()", 1);
         addPuzzlePiece("buttons", false, true, true, true, "addPuzzlePieceWithoutTopToBoard()", 2);
         addPuzzlePiece("buttons", true, true, true, true, "addNormalPuzzlePieceToBoard()", 1);
@@ -136,13 +135,38 @@
         addPuzzlePiece("buttons", true, false, false, true, "addPuzzlePieceWithoutRightAndBottomToBoard()", 1);
         addPuzzlePiece("buttons", true, true, false, true, "addPuzzlePieceWithoutBottomToBoard()", 2);
         addPuzzlePiece("buttons", true, true, false, false, "addPuzzlePieceWithoutLeftAndBottomToBoard()", 1);
+        
+        
+        let vertical = 0;
+        let horizontal = 24;
+        let color = 1
 
         function addPuzzlePieceWithoutTopAndRightToBoard() {
-            addPuzzlePiece("board", false, false, true, true, '', 1, 24, 0);
+            addPuzzlePiece("board", false, false, true, true, '', color, horizontal, vertical);
+            horizontal -= 6;
+            if (horizontal < 0) {
+                horizontal = 24;
+                vertical += 6;
+            }
+            if (color == 1) {
+                color = 2;
+            } else {
+                color = 1;
+            }
         }
 
         function addPuzzlePieceWithoutTopToBoard() {
-            addPuzzlePiece('board', false, true, true, true, '', 2, 18, 0);
+            addPuzzlePiece('board', false, true, true, true, '', color, horizontal, vertical);
+            horizontal -= 6;
+            if (horizontal < 0) {
+                horizontal = 24;
+                vertical += 6;
+            }
+            if (color == 1) {
+                color = 2;
+            } else {
+                color = 1;
+            }
         }
 
         function addNormalPuzzlePieceToBoard() {
